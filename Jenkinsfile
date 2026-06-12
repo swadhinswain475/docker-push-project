@@ -20,7 +20,7 @@ pipeline{
   stage("docker image build"){
    steps{
     script{
-	 sh 'docker build -t swadhinswain475/dockerimage'
+	 sh 'docker build -t swadhinswain475/myimage .'
 	}
    }
   }
@@ -30,7 +30,7 @@ pipeline{
 	 withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
       sh 'docker login -u swadhinswain475 -p $(dockerhubpwd)'
 }
-      sh 'docker push swadhinswain475/MyBuildImage'
+      sh 'docker push swadhinswain475/myimage'
 	}
    }
   }
