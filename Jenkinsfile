@@ -27,8 +27,8 @@ pipeline{
   stage("docker image pull to docker hub"){
    steps{
     script{
-	 withCredentials([string(credentialsId: 'dockerpush', variable: 'dockerhubpwd')]) {
-      sh 'docker login -u swadhinswain475 -p $(dockerhubpwd)'
+	 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pwd', usernameVariable: 'user')]) {
+      sh 'docker login -u $(user) -p $(pwd)'
 }
       sh 'docker push swadhinswain475/myimage'
 	}
