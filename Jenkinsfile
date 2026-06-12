@@ -24,13 +24,10 @@ pipeline{
 	}
    }
   }
-  stage("docker image pull to docker hub"){
+  stage("docker image push to docker hub"){
    steps{
     script{
-	 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pwd', usernameVariable: 'user')]) {
-      sh 'docker login -u $(user) -p $(pwd)'
-}
-      sh 'docker push swadhinswain475/myimage'
+	 sh 'docker images'
 	}
    }
   }
