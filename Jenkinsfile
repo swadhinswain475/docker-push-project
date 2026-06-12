@@ -20,7 +20,7 @@ pipeline{
   stage("docker image build"){
    steps{
     script{
-	 sh 'docker build -t swadhinswain475/MyBuildImage'
+	 sh 'docker build -t swadhinswain475/dockerimage'
 	}
    }
   }
