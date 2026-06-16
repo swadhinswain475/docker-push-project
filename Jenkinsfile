@@ -28,8 +28,8 @@ pipeline{
    steps{
     script{
 	 sh 'docker images'
-	 withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dhubl')]) {
-     sh 'docker login -u swadhinswain475 -p $(dhubl)'
+	 withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dhubpwd')]) {
+     sh 'docker login -u swadhinswain475 -p ${dhubpwd}'
 }
 	}
    }
