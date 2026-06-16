@@ -27,10 +27,10 @@ pipeline{
   stage("docker image push to docker hub"){
    steps{
     script{
-	 sh 'docker images'
 	 withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dhubpwd')]) {
      sh 'docker login -u swadhinswain475 -p ${dhubpwd}'
 }
+     sh 'dokcer push swadhinswain475/myimage:latest'
 	}
    }
   }
